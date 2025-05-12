@@ -23,6 +23,7 @@ A lightweight HTTP proxy that transparently signs requests using AWS Signature V
 -service string   # AWS service name (e.g., execute-api, es, s3)
 -region string    # AWS region (e.g., us-east-1)
 -host string      # AWS service host (e.g., search-my-domain.us-east-1.es.amazonaws.com)
+```
 
 ### Example
 
