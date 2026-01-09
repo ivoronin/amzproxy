@@ -19,17 +19,26 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 )
 
+var version = "dev"
+
 var (
-	service string
-	region  string
-	host    string
+	service     string
+	region      string
+	host        string
+	showVersion bool
 )
 
 func init() {
 	flag.StringVar(&service, "service", "", "AWS service name")
 	flag.StringVar(&region, "region", "", "AWS region")
 	flag.StringVar(&host, "host", "", "Target AWS host")
+	flag.BoolVar(&showVersion, "version", false, "Show version")
 	flag.Parse()
+
+	if showVersion {
+		fmt.Printf("amzproxy %s\n", version)
+		os.Exit(0)
+	}
 
 	if service == "" || region == "" || host == "" {
 		flag.Usage()
